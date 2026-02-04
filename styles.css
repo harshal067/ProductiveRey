@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 105, 180, 0.6),
+        rgba(255, 20, 147, 0.7)
+    ), url("images/bg-love.jpg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+.btn {
+    text-decoration: none;
+    background: white;
+    color: #ff1493;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffe6f2;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about {
+    background: #fff0f5;
+}
+
+.reasons {
+    background: #ffe4e1;
+}
+
+.reasons .cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    width: 200px;
+    color: #333;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.05);
+}
+
+/* Proposal */
+.proposal {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #fff;
+}
+
+.proposal h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.buttons .yes {
+    background: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #ff1493;
+    box-shadow: 0 0 15px rgba(255,20,147,0.6);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px rgba(255,20,147,0.6); }
+    50% { box-shadow: 0 0 25px rgba(255,20,147,1); }
+    100% { box-shadow: 0 0 10px rgba(255,20,147,0.6); }
+}
+
+/* Footer */
+footer {
+    background: #ff69b4;
+    color: white;
+    padding: 15px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .proposal h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 400px) {
+    .card {
+        width: 100%;
+    }
+}
+.hearts span {
+    position: fixed;
+    bottom: -20px;
+    animation: float 8s infinite ease-in;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-duration: 6s; }
+.hearts span:nth-child(2) { left: 30%; animation-duration: 8s; }
+.hearts span:nth-child(3) { left: 50%; animation-duration: 7s; }
+.hearts span:nth-child(4) { left: 70%; animation-duration: 9s; }
+.hearts span:nth-child(5) { left: 90%; animation-duration: 6.5s; }
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #1a1a1a;
+        color: #f5f5f5;
+    }
+
+    .about, .reasons {
+        background: #2a2a2a;
+    }
+
+    .card {
+        color: white;
+    }
+}
+.proposal .buttons {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.proposal .yes {
+    background: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #ff1493;
+    box-shadow: 0 0 15px rgba(255,20,147,0.6);
+    animation: pulse 2s infinite;
+    transition: 0.3s;
+}
+
+/* NO button magic */
+.proposal .no {
+    background: #ff1493;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Move NO button on hover */
+.proposal .no:hover {
+    transform: translateX(calc((random(1,2) * 100px) - 50px)) translateY(calc((random(1,2) * 50px) - 25px));
+}
+
+/* But wait — CSS doesn’t have random(), so we fake it with keyframes animation */
+@keyframes moveNo {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(80px, -30px); }
+    50% { transform: translate(-70px, 20px); }
+    75% { transform: translate(60px, 10px); }
+    100% { transform: translate(0, 0); }
+}
+
+.proposal .no:hover {
+    animation: moveNo 0.6s infinite;
+}
